@@ -1,25 +1,3 @@
-"""
-La Luna Escrita - Bot de Telegram, oráculo de programación en Python.
-
-Mejoras aplicadas sobre la versión original:
-1. Las claves (Telegram, Gemini, Groq) ya NO están escritas en el código.
-   Se leen de variables de entorno, para no exponerlas si el código se sube
-   a un repositorio público. Antes de correr el bot, define en tu sistema:
-
-   export TELEGRAM_TOKEN="tu_token"
-   export GEMINI_API_KEY="tu_clave"
-   export GROQ_API_KEY="tu_clave"
-
-   (En Windows: set TELEGRAM_TOKEN=tu_token, etc.)
-
-2. Se reemplazó el "except:" genérico por "except Exception as e" con logging,
-   para poder ver en consola qué falló exactamente si Gemini no responde.
-3. Se evita un KeyError si el usuario llega a "procesar_solicitud" sin haber
-   pasado por "elegir_modo" (context.user_data.get en vez de acceso directo).
-4. Se valida que exista TELEGRAM_TOKEN antes de arrancar, con un mensaje claro
-   si falta alguna variable de entorno.
-5. Pequeños ajustes de nombres/documentación siguiendo PEP 8.21
-"""
 
 import logging
 import re
